@@ -6,4 +6,4 @@
 
 ## Thanks
 
-- Laracasts.com
+- [Laracasts](https://Laracasts.com)
