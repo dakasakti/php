@@ -98,6 +98,27 @@ class Database
         $this->query("DELETE FROM {$this->table} {$this->query}", $this->params);
     }
 
+    private function escape($value)
+    {
+        return "'" . $value . "'";
+    }
+
+    private function set($data)
+    {
+        $setValues = [];
+
+        foreach ($data as $key => $value) {
+            $setValues[] = "{$key} = " . $this->escape($value);
+        }
+
+        return implode(', ', $setValues);
+    }
+
+    public function update($data, $params = [])
+    {
+        $this->query("UPDATE {$this->table} SET {$this->set($data)} {$this->query}", $params);
+    }
+
     public function get($params = [])
     {
         $this->run($params);

@@ -10,7 +10,8 @@
             <p><?= htmlspecialchars($contents["title"]) ?></p>
             <p><?= htmlspecialchars($contents["body"])  ?></p>
 
-            <form method="POST">
+            <a href="/notes/edit?id=<?= $contents["id"] ?>" class="mt-5 inline-flex justify-center rounded-md border border-transparent bg-yellow-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Edit</a>
+            <form method="POST" class="inline-block">
                 <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="id" value="<?= $contents["id"] ?>">
                 <button class="mt-5 inline-flex justify-center rounded-md border border-transparent bg-red-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Delete</button>
